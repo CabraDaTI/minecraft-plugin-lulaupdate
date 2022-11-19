@@ -1,6 +1,7 @@
 package org.cabradati.lulaupdate
 
 import org.bukkit.plugin.java.JavaPlugin
+import org.cabradati.lulaupdate.events.LulaSpawnEvent
 
 class App: JavaPlugin() {
 
@@ -26,6 +27,11 @@ class App: JavaPlugin() {
             this,
             server,
             config
+        )
+
+        server.pluginManager.registerEvents(
+            LulaSpawnEvent(diContainer),
+            this
         )
 
         super.onEnable()
